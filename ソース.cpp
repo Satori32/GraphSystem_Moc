@@ -62,11 +62,27 @@ struct FixedGraphNode {
 	FixedVector<TypeAndValue,C.Value> Node;
 };
 
-struct EndPoint{
+struct EndPointA{
 	//type Type = NULL;
 	typedef void* Type;
 	//type T = Type;
 	
 	T Value;
 	GraphParam P;
+};
+struct EndPointB{
+	GraphParam P;
+};
+struct EndPointC{
+	//type Type = NULL;
+	typedef void* Type;
+	//type T = Type;
+	
+	T Value;
+	GraphParam P;
+	TypeAndValue Back;
+};
+struct EndPointD{
+	GraphParam P;
+	TypeAndValue Back;
 };
