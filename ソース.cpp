@@ -45,12 +45,17 @@ struct GraphSystem {
 
 	T Value;
 
-	TypeAndValue Root;
+	Node Root;
 };
 struct GraphParam {//plz rewrite this.
 
 	void* Arrow[16];
 	void* Weight = 0xdeadbeef;
+};
+
+struct Node {
+	Vector<GraphParam> Param;
+	Vector<TypeAndValue> Node;
 };
 struct GraphNode {
 	//type Type = NULL;
@@ -58,8 +63,8 @@ struct GraphNode {
 	//type T = Type;
 
 	T Value;
-	GraphParam P;
-	Vector<TypeAndValue> Node;
+
+	Vector<Node> Node;
 };
 struct FixedGraphNode {
 	//type Type = NULL;
@@ -69,8 +74,8 @@ struct FixedGraphNode {
 	ConstHolder C;
 
 	T Value;
-	GraphParam P;
-	FixedVector<TypeAndValue,C.Value> Node;
+
+	FixedVector<Node,C.Value> Node;
 };
 
 struct EndPointA{
@@ -90,10 +95,8 @@ struct EndPointC{
 	//type T = Type;
 	
 	T Value;
-	GraphParam P;
-	TypeAndValue Back;
+	Node Back;
 };
 struct EndPointD{
-	GraphParam P;
-	TypeAndValue Back;
+	Node Back;
 };
