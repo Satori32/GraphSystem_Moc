@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 #include "Vector.h"
 #include "FixedVector.h"
@@ -44,7 +45,7 @@ struct GraphSystem {
 	//type T = Type;
 
 	T Value;
-
+	intmax_t N = 0;
 	Node Root;
 };
 struct GraphParam {//plz rewrite this.
@@ -63,7 +64,7 @@ struct GraphNode {
 	//type T = Type;
 
 	T Value;
-
+	intmax_t N = 0;
 	Vector<Node> Node;
 };
 struct FixedGraphNode {
@@ -74,7 +75,7 @@ struct FixedGraphNode {
 	ConstHolder C;
 
 	T Value;
-
+	intmax_t N = 0;
 	FixedVector<Node,C.Value> Node;
 };
 
@@ -84,9 +85,11 @@ struct EndPointA{
 	//type T = Type;
 	
 	T Value;
+	intmax_t N = 0;
 	GraphParam P;
 };
 struct EndPointB{
+	intmax_t N = 0;
 	GraphParam P;
 };
 struct EndPointC{
@@ -95,8 +98,10 @@ struct EndPointC{
 	//type T = Type;
 	
 	T Value;
+	intmax_t N = 0;
 	Node Back;
 };
 struct EndPointD{
+	intmax_t N = 0;
 	Node Back;
 };
