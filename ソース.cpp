@@ -13,20 +13,31 @@ struct TypeAndValue {
 	T.T Value;
 };
 
-struct ConstHolder {
-	//type Type = NULL;
-	typedef void* Type;
-	//type T = Type;
-	const T Value;
+struct ConstNumberHolder {
+	const size_t Value;
 };
 
 template<size_t N>
-ConstHolder ConstructConstHolder<N>() {
+ConstNumberHolder ConstructConstNumberHolder<N>() {
 	ConstHolder C = { N };
 
 	return C;
 }
+struct ConstTHolder {
+	//type Type = NULL;
+	typedef void* Type;
+	//type T = Type;
 
+	const T Value;
+};
+
+template<class T,T N>
+ConstTHolder ConstructConstTHolder<T>() {
+	const T Value = N;
+	ConstHolder C = { Value };
+
+	return C;
+}
 struct GraphSystem {
 	//type Type = NULL;
 	typedef void* Type;
